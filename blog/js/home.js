@@ -1,7 +1,19 @@
 $(document).ready(function(){
 //	alert($("#blog_list").attr("detial-url"));
+	var url = window.location.href;
+	if (url.endsWith("html")) {
+		var page = "1";
+	} else {
+		if (url.endsWith("#")) {
+			url = url.substring(0, url.length - 1);
+		}
+		var page = url.substring(url.indexOf("=")+1);
+	}
+	
+//	alert(page);
 	var html = "";
 	var json = "";
+	var pageLength;
 	$.ajax({
 		type: "GET",
 		url: "data/data.json",
@@ -14,8 +26,15 @@ $(document).ready(function(){
 		success: function(response) {
 //			alert(response);
 			var obj = eval(response);
+//			alert(obj.length)
+			if (obj.length%10>0) {
+				pageLength = obj.length/10+1;
+			} else {
+				pageLength = obj.length/10;
+			}
+			
 //			alert(obj[1].id);
-			for(var i = 0; i < obj.length; i++) {
+			for(var i = 10*(page-1); i < 10*(page-1)+10&& i<obj.length; i++) {
 				html += '<div class="panel panel-default">';
 				html += '<div class="panel-heading">';
 				html += '<div class="row">';
@@ -37,34 +56,49 @@ $(document).ready(function(){
 				html += '<p>作者：'+obj[i].blog_auther+'</p>';
 				html += '<p>'+obj[i].blog_content+'</p>';
 				html += '<p>';
-				html += '<a class="btn btn-primary btn-sm bg-color" href="http://localhost/blog/index.php/Home/Index/detial/?id=' + i + '" role="button">Learn more »</a>';
+				html += '<a class="btn btn-primary btn-sm bg-color" href="detial.html?id=' + i + '" role="button">Learn more »</a>';
 				html += '</p>';
 				html += '</div>';
 				html += '</div>';
 			}
 			html += '<div class="">';
 			html += '<ul class="pagination">';
-			html += '<li class="disabled">';
-			html += '<a>&laquo;</a>';
-			html += '</li>';
-			html += '<li class="active">';
-			html += '<a href="#">1</a>';
-			html += '</li>';
-			html += '<li>';
-			html += '<a id="turnTo">2</a>';
-			html += '</li>';
-			html += '<li>';
-			html += '<a href="#">3</a>';
-			html += '</li>';
-			html += '<li>';
-			html += '<a href="#">4</a>';
-			html += '</li>';
-			html += '<li>';
-			html += '<a href="#">5</a>';
-			html += '</li>';
-			html += '<li>';
-			html += '<a href="#">&raquo;</a>';
-			html += '</li>';
+			
+//			alert(pageLength)
+			if(page==1){
+				html += '<li class="disabled">';
+				html += '<a>&laquo;</a>';
+				html += '</li>';
+			} else {
+				html += '<li>';
+				html += '<a href=index.html?page='+(page-1)+'>&laquo;</a>';
+				html += '</li>';
+			}
+			
+			
+			for(var i=1; i<=pageLength; i++){
+				if(i==page){
+					html += '<li class="active">';
+				}else {
+					html += '<li>';
+				}
+				
+				html += '<a href="index.html?page='+i+'">'+i+'</a>';
+				html += '</li>';
+			}
+			
+			if (page==pageLength) {
+				html += '<li class="disabled">';
+				html += '<a>&raquo;</a>';
+				html += '</li>';
+			} else {
+				html += '<li>';
+				html += '<a href=index.html?page='+(parseInt(page)+1)+'>&raquo;</a>';
+				html += '</li>';
+			}
+			
+			
+			
 			html += '</ul>';
 			html += '</div>';
 			
