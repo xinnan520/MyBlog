@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="imgs/favicon.ico" rel="shortcut icon">
+		<title>xinnan's blog</title>
+		<script type="text/javascript" src="../assets/jquery.min.js" ></script>
+		
+		<link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/gotoTop.css"/>
+		<link rel="stylesheet" href="css/style.css" />
+		<style type="text/css">
+			.body {
+				background: url(imgs/bg_wall.jpg) repeat;
+				
+			}
+		</style>
+	</head>
+	<body class="body">
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				        <span class="sr-only">Toggle navigation</span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+			      	</button>
+					<a href="#" class="navbar-brand">BLOG</a>
+				</div>
+			   	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			   		<ul class="nav navbar-nav navbar-right">
+			   			<li><a href="#">About me</a></li>
+			   			<li class="dropdown">
+			   				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">分类&nbsp;&nbsp;&nbsp;&nbsp;<span class="caret"></span></a>
+			   				<ul class="dropdown-menu">
+			   					<li>
+			   						<a href="#">Android</a>
+			   					</li>
+			   					<li>
+			   						<a href="#">JavaWeb</a>
+			   					</li>
+			   					<li>
+			   						<a href="#">Php</a>
+			   					</li>
+			   					<li role="separator" class="divider"></li>
+			   					<li>
+			   						<a href="#">鸡汤</a>
+			   					</li>
+			   				</ul>
+			   			</li>
+			   		</ul>
+			   	</div>
+			   	<!-- /.navbar-collapse -->
+			</div>
+		</nav>
+		<div class="jumbotron banner">
+			<div class="container">
+				<h1>Hello, my friend!</h1>
+				<p>Welcome to xinnan's blog!</p>
+				<p>This is a blog that shares my fun and knowledge.</p>	  
+				<p>
+					<a class="btn btn-primary btn-lg bg-color" href="#" role="button">Learn more »</a>
+				</p>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-9">
+					<div id="blog_list" request-url="data/data.json" detial-url="{:U('Home/Index/detial')}">
+						
+					</div>
+				</div>
+				<div class="col-lg-3 visible-lg">
+					<ul class="list-group">
+						<li class="list-group-item bg-color">分类</li>
+						<li class="list-group-item">Android</li>
+						<li class="list-group-item">JavaWeb</li>
+						<li class="list-group-item">Php</li>
+						<li class="list-group-item">鸡汤</li>
+					</ul>
+					<ul class="list-group">
+						<li class="list-group-item bg-color">浏览最多</li>
+						<li class="list-group-item">item title</li>
+						<li class="list-group-item">item title</li>
+						<li class="list-group-item">item title</li>
+						<li class="list-group-item">item title</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<footer class="bs-docs-footer">
+			  <div class="container">
+					
+				<p><a id="returnTop">返回顶部</a></p>
+					
+				<p><a href="{:U('Admin/Login/showLoginPage')}">admin<a/></p>
+					
+			    <p>Designed and built by xinnan.</p>
+			
+			    <p><a href="http://www.miitbeian.gov.cn">苏ICP备17070354号</a></p>
+			
+			  </div>
+		</footer>
+		
+		<a href="#0" class="cd-top">Top</a>
+		
+		<script type="text/javascript" src="../assets/jquery.min.js" ></script>
+		<script type="text/javascript" src="../assets/bootstrap/js/bootstrap.js" ></script>
+		<script type="text/javascript" src="js/home.js" ></script>
+		<script type="text/javascript" src="js/gotoTop.js"></script>
+	</body>
+
+</html>
