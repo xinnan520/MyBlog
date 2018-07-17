@@ -51,7 +51,7 @@ $(document).ready(function(){
 				html += '<div class="panel-body">';
 				html += '<h4>'+obj[i].blog_title+'</h4>';
 				html += '<a href="detial.html?id='+obj[i].id+'" class="thumbnail">';
-				html += '<img src="imgs/main-pic/'+obj[i].blog_img+'" alt="通用的占位符缩略图">';
+				html += '<img src=obj[i].blog_img+'" alt="通用的占位符缩略图">';
 				html += '</a>';
 				html += '<p>作者：'+obj[i].blog_auther+'</p>';
 				html += '<p>'+obj[i].blog_content+'</p>';
